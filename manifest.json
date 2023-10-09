@@ -1,0 +1,54 @@
+{
+    "name": "Getting Fit by Working",
+    "description": "Everytime I hit F5, I do one pushup",
+    "version": "1.0",
+    "manifest_version": 3,
+    "background": {
+        "service_worker" : "backend.js"
+    },        
+    "content_scripts": [
+        {
+            "matches": [
+                "https://local-community.hyland.com/*",
+                "https://local-training.hyland.com/*",
+                "https://local-try.hyland.com/*"
+            ],
+            "js": [
+                "frontend.js"                
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "get-fit.html",
+                "vPk7m9YtRXpKw.webp",
+                "script.js",
+                "icon16.png"
+            ],
+            "matches": [
+                "https://local-community.hyland.com/*",
+                "https://local-training.hyland.com/*",
+                "https://local-try.hyland.com/*"
+            ]
+        }
+    ],
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "scripting"
+    ],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
+    }
+}
